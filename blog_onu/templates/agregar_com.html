@@ -1,0 +1,24 @@
+{% extends 'blog.html' %}
+
+{% load static %}
+
+{% block titulo %}
+{{ agregar_com.titulo }}
+{% endblock titulo %}
+
+{% block contenido %}
+<div style="padding:5%">
+    <h1> Agregar comentario </h1>
+    <form method="POST">
+        {% csrf_token %}
+       
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example1cg"></label><br>Comentario</br>
+            <input  type="text" autocomplete="off" id="form3Example1cg" class="form-control form-control-lg" name="texto" style="width: 300px; height: auto;" {% if form.is_bound %} {{ form.comment.value }} {% endif %} />
+        </div>
+        <button type="submit" class=" btn btn-primary"> Enviar </button>
+    </form>
+
+</div>
+
+{% endblock contenido %}

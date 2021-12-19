@@ -1,0 +1,211 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block titulo %}Blog{% endblock titulo %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all"> 
+    </head>
+
+    <body id="top">
+
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %} 
+
+      <div class="wrapper row0">
+        <div id="topbar" class="hoc clear"> 
+          
+          <div class="fl_left">
+            <ul class="nospace">
+              <li><a href="{% url 'index' %}"><i class="fas fa-home fa-lg"></i></a></li>
+              <li><a href="{% url 'logout' %}">Salir</a></li>
+              <li><a href="#">Nosotros</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'registro' %}">Registro</a></li>
+              <li><a href="{% url 'blog' %}">Blog</a></li>
+            </ul>
+          </div>
+         
+          <!-- ################################################################################################ -->
+        </div>
+      </div>
+      
+     {% block contenido %}
+     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="height: 300px;">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+          <img src="https://cbaglobal.com.ar/wp-content/uploads/2018/02/S_SDG_Logo_UN-Emblem-02.png" class="d-block w-100" alt="..." style="height: 300px;">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="https://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/08/spanish_SDG_17goals_poster_all_languages_with_UN_emblem.png" class="d-block w-100" alt="..." style="height: 300px;">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+          <img src="https://www.sistemas-catalunya.com/wp-content/uploads/2021/06/ricoh-ods.jpg" class="d-block w-100" alt="..." style="height: 300px;">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+      <div class="wrapper row3">
+        <main class="hoc container clear"> 
+          <!-- main body -->
+          <!-- ################################################################################################ -->
+          <div class="sectiontitle">
+            <h4 class="heading">Lo más destacado</h4>
+            
+          </div>
+          <ul class="nospace group overview">
+            <li class="one_third">
+              <figure><a href="https://www.diariocronica.com.ar/noticias/2021/12/17/59296-se-concreto-el-primer-encuentro-municipal-para-la-aplicacion-de-la-agenda-de-desarrollo-sostenible"><img src="{% static 'images/news1.jpg' %}" alt=""></a>
+                <figcaption>
+                  <h6 class="heading">Se concretó el primer encuentro nacional para la aplicación de la genda de desarrollo sostenible</h6>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="one_third">
+              <figure><a href="https://prensa.cba.gov.ar/informacion-general/cordoba-firmo-un-convenio-con-la-onu-para-avanzar-sobre-la-agenda-2030/"><img src="{% static 'images/news2.jpg' %}" alt=""></a>
+                <figcaption>
+                  <h6 class="heading">Córdoba firmó un convenio con la ONU para avanzar sobre la Agenda 2030</h6>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="one_third">
+              <figure><a href="https://branded.eldiario.es/ods-desarrollo-evolucion-el-consorci/"><img src="{% static 'images/news3.jpg' %}" alt=""></a>
+                <figcaption>
+                  <h6 class="heading">El cumplimiento de los ODS en el ámbito industrial y empresarial  como estrategia de desarrollo y evolución</h6>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="one_third">
+              <figure><a href="https://www.youtube.com/watch?v=yviGQg2Yl"><img src="{% static 'images/video1.webp' %}" alt=""></a>
+                <figcaption>
+                  <h6 class="heading">¿Podrán Cumplirse LOS ODS? 🔴 OBJETIVOS DE DESARROLLO SOSTENIBLE ¿Cómo Van? 2021</h6>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="one_third">
+              <figure><a href="https://www.youtube.com/watch?v=345IxGgjF9s&t=105s"><img src="{% static 'images/video2.webp' %}" alt=""></a>
+                <figcaption>
+                  <h6 class="heading">ODS - Los 17 Objetivos de Desarrollo  Sostenible</h6>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="one_third">
+              <figure><a href="https://www.youtube.com/watch?v=twMRJ6a-j7A"><img src="{% static 'images/video3.webp' %}" alt=""></a>
+                <figcaption>
+                  <h6 class="heading">Objetivos de Desarrollo Sostenible - Agenda 2030 - Educación Ambiental Digital | Eco House</h6>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        
+          <div class="clear"></div>
+        </main>
+      </div>
+      <!-- ################################################################################################ -->
+    
+      <div class="wrapper gradient">
+        <section id="testimonials" class="hoc container clear"> 
+            <div class="sectiontitle">
+            <h4 class="heading">Testimonios</h4>
+          </div>
+          <article class="one_half first"><img style="max-width: 300px; max-height: 300px;" src="https://www.scidev.net/america-latina/wp-content/uploads/sites/3/2019/08/Achim_Steiner_unep-scaled.jpg" alt="">
+            <blockquote>La agenda 2030 ofrece una oportunidad única para poner al mundo camino a un desarrollo más próspero y sostenible</blockquote>
+            <h6 class="heading">Achim Steiner</h6>
+            <em>Administrador del PNUD</em></article>
+          <article class="one_half"><img style="max-width: 300px; max-height: 300px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ban_Ki-moon_headshot.jpg/220px-Ban_Ki-moon_headshot.jpg" alt="">
+            <blockquote>Los 17 ODS se tratan de una lista de tareas para las personas y el planeta, y de un plan para el éxito.</blockquote>
+            <h6 class="heading">Ban Ki-moon</h6>
+            <em>Ex-secretario Genral de la ONU</em></article>
+          <!-- ################################################################################################ -->
+        </section>
+      </div>
+      <!-- ################################################################################################ -->
+      <div class="wrapper row2">
+        <section id="latest" class="hoc container clear"> 
+          <div class="sectiontitle">
+            <h4 class="heading">Publicaciones</h4>
+          </div>
+         <div class="posts" style="display: flex; ;align-items: flex-start; flex-direction: row; flex-flow: row;">
+          <ul class="nospace group">
+
+            {% if posts %}
+                {% for post in posts %}
+                <li  class="one_third"> 
+                  <article style="padding-bottom:20px;">
+                    <figure><a href="{% url 'detalle_post' post.id %}"><img src="{{ post.imagen }}" alt="" style="width: 30rem; height: 15rem;"></a>
+                      <figcaption>
+                        <time datetime="{{ post.fecha_creacion }}"></time>
+                      </figcaption>
+                    </figure>
+                    <div class="excerpt" style="height: 287.56px; bottom: 20px;">
+                      <h6 class="heading">{{ post.titulo }}</h6>
+                      <ul class="nospace meta">
+                        <li><i class="fas fa-user">{{ post.autor }}</i></li>
+                        <li><i class="fas fa-tags">ODS</i> </li>
+                      </ul>
+                      <p  > {{ post.descripcion }} <a href="{% url 'detalle_post' id=post.pk  %}">[…]</a></p>
+                      <footer><a class="btn" href="{% url 'detalle_post' id=post.pk %}">Leer más</a></footer>
+                    </div>
+                  </article>
+                </li>
+                {% endfor %}
+                {% else %}
+                <h1> No existen publicaciones registradas </h1>
+
+                {% endif %}
+  
+          </ul>
+         </div>
+            
+            
+          <!-- ################################################################################################ -->
+        </section>
+      </div>
+     
+      {% endblock contenido %}
+      
+      <div class="wrapper row5">
+        <div id="copyright" class="hoc clear"> 
+          <!-- ################################################################################################ -->
+          <p class="fl_left">Copyright © 2021 - Todos los derechos reservados - <a href="#">Gaia 2030 by Relabiz</a></p>
+          <!-- ################################################################################################ -->
+        </div>
+      </div>
+      
+      <a id="backtotop" href="#top" class="visible"><i class="fas fa-chevron-up"></i></a>
+      <!-- JAVASCRIPTS -->
+      <script src="layout/scripts/jquery.min.js"></script>
+      <script src="layout/scripts/jquery.backtotop.js"></script>
+      <script src="layout/scripts/jquery.mobilemenu.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+      
+
+    </body>
+</html>

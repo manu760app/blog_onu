@@ -16,8 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from apps.blog import views #Importando vistas
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.signin_signup, name='signin-signup'),
+    path('', views.index, name='index'),
+    path('registro/', views.registro, name='registro'),
+    path('blog/', views.blog, name='blog'),
+    path('login/', views.loginPage, name='login'),
+    path('logout/', views.logoutUser, name='logout'),
+    path('<int:id>/', views.detalle_post, name='detalle_post'),
+    path('<int:id>/comments/', views.agregar_com, name='agregar_com'),
+    path('<int:pk>/comments/delete-comments/', views.eliminar_com, name='eliminar_com'),
+
+    
+   
+    
 ]
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

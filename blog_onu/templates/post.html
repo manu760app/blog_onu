@@ -1,0 +1,61 @@
+{% extends 'blog.html' %}
+
+{% load static %}
+
+{% block titulo %}
+{{ detalle_post.titulo }}
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<div style="padding: 3%;">
+    <h1>{{ detalle_post.titulo }}</h1>
+<p>{{ detalle_post.contenido|safe}}</p>
+<img src="{{ detalle_post.imagen }}" style="max-width: 400px; max-height: 400px;"/>
+<hr>
+<h1>Comentarios</h1>
+
+{% if not detalle_post.comentarios.all %}
+No hay comentarios aún
+</br>
+    {% if user.is_authenticated %}
+         <a href="{% url 'agregar_com' detalle_post.id %}">Sé el primero en comentar</a>
+    {% else %}
+        <a href="{% url 'registro' %}">Debes registrate para comentar</a>
+        </br>
+    {% endif %}
+
+{% else %}
+    
+    {% for comentario in detalle_post.comentarios.all %}
+    <strong> {{ comentario.autor }} </strong>
+    </br>
+    {{ comentario.texto|safe }}
+    </br>
+    <small style="font-size: x-small;"> {{comentario.fecha_creacion}} </small>
+    </br>
+    <hr>
+
+        {% if user.username == comentario.autor %}
+            <div class="com_options" style="display: flex;"> 
+                <a class="btn btn-danger"style="margin-right: 20px; background: red;" href="{% url 'eliminar_com' detalle_post.id %}"> Eliminar comentario </a>
+            </div>
+            <br> <br>  
+        {% endif %}
+   
+    {% endfor %}
+    {% if user.is_authenticated %}
+        <div class="com_options" style="display: flex;"> 
+            <a class="btn btn-primary"style="margin-right: 20px; background: blue;" href="{% url 'agregar_com' detalle_post.id %}"> Agregar comentario </a>    
+        </div>
+        {% else %}
+            <a href="{% url 'registro' %}">Debes registrate para comentar</a>
+            </br>
+        {%  endif %}
+
+  {% endif %}
+
+</div>
+
+{% endblock contenido %}
