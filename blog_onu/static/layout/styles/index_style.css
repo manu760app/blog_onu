@@ -1,0 +1,51 @@
+* {
+    font-family: 'Helvetica Neue', sans-serif !important;
+   
+}
+
+
+.navbar .navbar-brand {
+    font-size: 32px;
+    font-family: cursive !important;
+}
+.navbar{
+    background-color: #356c9f81;
+    
+}
+.navbar a {
+    color: black !important;
+}
+.seccion-1 {
+    background-image: url(../../images/index/imagenes/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+}
+.texto-intro{
+    color: black;
+    padding-top: 100px;
+    
+    
+}
+.texto-intro h2 {
+    font-size: 58px;
+    padding-bottom: 37px;
+    text-align: center;
+   
+
+    
+    
+}
+.texto-intro p {
+    font-size: 20px;
+    color: black;
+    
+}
+.imagen{
+    
+    padding-bottom: 30px;
+    text-align: center;
+    
+}
+
+

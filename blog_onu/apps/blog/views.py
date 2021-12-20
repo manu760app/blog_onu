@@ -12,6 +12,9 @@ def index(request):
   context = {}
   return render(request, 'index.html', context)
 
+def nosotros(request):
+  context = {}
+  return render(request, 'nosotros.html', context)
 
 def registro(request):
   if request.user.is_authenticated:
